@@ -13,7 +13,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        /* Ocultar barra de scroll en el menú de pestañas */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -28,47 +27,59 @@
             const [activeTab, setActiveTab] = useState('itinerario');
 
             const itinerario = [
-                { dia: "01", titulo: "México – Dubái", desc: "Inicio de la aventura. Cita en el aeropuerto de CDMX para el vuelo transatlántico. Noche a bordo." },
-                { dia: "02", titulo: "Llegada a Dubái", desc: "Recepción por nuestro equipo y traslado al hotel seleccionado. Tiempo libre para aclimatación." },
-                { dia: "04", titulo: "Dubái – Bangkok", desc: "Vuelo hacia la capital tailandesa. Traslado al hotel." },
-                { dia: "05", titulo: "Bangkok (Templos)", desc: "Recorrido por el Templo del Buda de Oro y el Gran Palacio Real." },
-                { dia: "08", titulo: "Phuket – Tokio", desc: "Traslado al aeropuerto para volar hacia la capital de Japón." },
-                { dia: "13", titulo: "Hakone – Kioto", desc: "Experiencia en el Tren Bala Shinkansen hacia la ciudad de los templos." },
-                { dia: "20", titulo: "Llegada a México", desc: "Fin de la travesía Imperios de Asia." }
+                { dia: "01", titulo: "México – Dubái", desc: "Inicio de la aventura. Cita en el aeropuerto de CDMX." },
+                { dia: "02", titulo: "Llegada a Dubái", desc: "Recepción y traslado al hotel seleccionado." },
+                { dia: "03", titulo: "Dubái (Safari)", desc: "Safari por el desierto con cena buffet incluida." },
+                { dia: "04", titulo: "Dubái – Bangkok", desc: "Vuelo hacia Tailandia. Traslado al hotel." },
+                { dia: "05", titulo: "Bangkok (Templos)", desc: "Visita al Buda de Oro y el Gran Palacio Real." },
+                { dia: "06", titulo: "Bangkok – Phuket", desc: "Vuelo a la isla de Phuket. Tarde de playa." },
+                { dia: "07", titulo: "Phuket (Phi Phi)", desc: "Excursión a las Islas Phi Phi y Maya Bay." },
+                { dia: "09", titulo: "Llegada a Tokio", desc: "Recepción y traslado al hotel en el centro." },
+                { dia: "12", titulo: "Mt. Fuji – Hakone", desc: "Crucero por el Lago Ashi y vistas al Monte Fuji." },
+                { dia: "13", titulo: "Tren Bala a Kioto", desc: "Traslado en Shinkansen a la capital cultural." },
+                { dia: "20", titulo: "Llegada a México", desc: "Fin de los servicios." }
             ];
 
             const hoteles = [
                 { destino: "Dubái", nombre: "Mövenpick Al Mamzar", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600" },
-                { destino: "Tokio", nombre: "Sunshine City Prince", cat: "4* Premium", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=600" }
+                { destino: "Bangkok", nombre: "Century Park Hotel", cat: "4* Superior", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Phuket", nombre: "Fishermen's Harbour", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Tokio", nombre: "Sunshine City Prince", cat: "4* Premium", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Osaka", nombre: "Hotel Keihan / Miyako", cat: "4 estrellas", img: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=600" }
             ];
 
             const inclusiones = [
-                "Vuelos Internacionales CDMX-Dubái-Bangkok // Osaka-Dubái-CDMX.",
-                "Alojamiento en hoteles de lujo y categoría superior.",
-                "Guías certificados de habla hispana.",
-                "Experiencia en Tren Bala (Shinkansen)."
+                "Vuelos Internacionales completos.",
+                "Vuelos internos en Tailandia y conexión a Japón.",
+                "Hoteles 4* y 5* con desayunos.",
+                "Traslados privados y guías en español.",
+                "Tren Bala Shinkansen incluido.",
+                "Seguro de viaje internacional."
+            ];
+
+            const noIncluye = [
+                "Gastos personales y propinas.",
+                "Trámite de visas (aprox. $85 USD).",
+                "Comidas no especificadas."
             ];
 
             return (
-                <div className="min-h-screen pb-10">
-                    {/* Navegación fija */}
-                    <nav className="bg-white sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+                <div className="min-h-screen pb-20">
+                    <nav className="bg-white sticky top-0 z-50 border-b border-slate-200">
                         <div className="max-w-7xl mx-auto px-4">
                             <div className="flex justify-between items-center h-16">
                                 <div className="flex flex-col">
-                                    <span className="text-xl font-black leading-tight">DREAMS CENTER</span>
+                                    <span className="text-xl font-black">DREAMS CENTER</span>
                                     <span className="text-[8px] font-bold text-[#C5A059] tracking-widest uppercase">Imperios de Asia 2026</span>
                                 </div>
-                                <a href="https://wa.me/2212899364" className="bg-[#C5A059] text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase">WhatsApp</a>
+                                <a href="https://wa.me/2212899364" className="bg-[#C5A059] text-white px-4 py-2 rounded-full text-[10px] font-bold">WHATSAPP</a>
                             </div>
-                            
-                            {/* Menú de Pestañas (CORREGIDO: Desplazable en celular) */}
-                            <div className="flex overflow-x-auto no-scrollbar space-x-4 pb-2">
+                            <div className="flex overflow-x-auto no-scrollbar space-x-6 pb-2">
                                 {['itinerario', 'hoteles', 'inclusiones', 'inversion'].map((tab) => (
                                     <button 
                                         key={tab} 
                                         onClick={() => setActiveTab(tab)} 
-                                        className={`whitespace-nowrap px-3 py-2 text-[11px] font-black uppercase tracking-wider transition-all border-b-2 ${
+                                        className={`whitespace-nowrap pb-2 text-[11px] font-black uppercase tracking-wider border-b-2 transition-all ${
                                             activeTab === tab ? 'border-[#C5A059] text-[#C5A059]' : 'border-transparent text-slate-400'
                                         }`}
                                     >
@@ -79,23 +90,15 @@
                         </div>
                     </nav>
 
-                    {/* Hero Section */}
-                    <header className="relative h-[35vh] flex items-center justify-center bg-slate-900 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=800" className="absolute w-full h-full object-cover opacity-40" />
-                        <div className="relative text-center px-4">
-                            <h1 className="text-4xl font-black text-white tracking-tighter">IMPERIOS <span className="text-[#C5A059]">DE ASIA</span></h1>
-                        </div>
-                    </header>
-
-                    <main className="max-w-7xl mx-auto px-4 mt-8">
+                    <main className="max-w-4xl mx-auto px-4 mt-6">
                         {activeTab === 'itinerario' && (
                             <div className="space-y-4">
                                 {itinerario.map((step, idx) => (
-                                    <div key={idx} className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex gap-4">
-                                        <div className="bg-slate-50 h-10 w-10 rounded-lg flex items-center justify-center font-bold text-[#C5A059] shrink-0">{step.dia}</div>
+                                    <div key={idx} className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex gap-4">
+                                        <div className="bg-[#C5A059]/10 h-10 w-10 rounded-lg flex items-center justify-center font-bold text-[#C5A059] shrink-0 text-sm">{step.dia}</div>
                                         <div>
-                                            <h3 className="font-bold text-sm text-slate-800 uppercase">{step.titulo}</h3>
-                                            <p className="text-slate-500 text-xs mt-1 leading-relaxed">{step.desc}</p>
+                                            <h3 className="font-bold text-xs text-slate-800 uppercase">{step.titulo}</h3>
+                                            <p className="text-slate-500 text-[11px] mt-1 leading-relaxed">{step.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -105,12 +108,12 @@
                         {activeTab === 'hoteles' && (
                             <div className="grid grid-cols-1 gap-6">
                                 {hoteles.map((hotel, idx) => (
-                                    <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
-                                        <img src={hotel.img} className="h-44 w-full object-cover" />
+                                    <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100">
+                                        <img src={hotel.img} className="h-48 w-full object-cover" />
                                         <div className="p-5">
-                                            <span className="text-[9px] font-bold text-[#C5A059] uppercase">{hotel.cat}</span>
-                                            <h3 className="text-lg font-black text-slate-800">{hotel.nombre}</h3>
-                                            <p className="text-slate-400 text-xs">{hotel.destino}</p>
+                                            <span className="text-[9px] font-bold text-[#C5A059] uppercase tracking-widest">{hotel.cat}</span>
+                                            <h3 className="text-lg font-black text-slate-800 leading-tight">{hotel.nombre}</h3>
+                                            <p className="text-slate-400 text-xs font-medium">{hotel.destino}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -118,31 +121,48 @@
                         )}
 
                         {activeTab === 'inclusiones' && (
-                            <div className="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
-                                <h3 className="font-black text-emerald-900 mb-4 uppercase text-sm">¿Qué incluye el viaje?</h3>
-                                <ul className="space-y-3">
-                                    {inclusiones.map((item, idx) => (
-                                        <li key={idx} className="text-xs text-emerald-800 flex gap-2">
-                                            <span className="text-emerald-500">✔</span> {item}
-                                        </li>
-                                    ))}
-                                </ul>
+                            <div className="space-y-6">
+                                <div className="bg-emerald-50 p-6 rounded-[2rem] border border-emerald-100">
+                                    <h3 className="font-black text-emerald-900 mb-4 uppercase text-xs flex items-center gap-2">
+                                        <span className="text-lg">✓</span> Lo que incluye
+                                    </h3>
+                                    <ul className="space-y-3">
+                                        {inclusiones.map((item, idx) => (
+                                            <li key={idx} className="text-[11px] text-emerald-800 font-bold flex gap-2 italic">
+                                                • {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="bg-rose-50 p-6 rounded-[2rem] border border-rose-100">
+                                    <h3 className="font-black text-rose-900 mb-4 uppercase text-xs flex items-center gap-2">
+                                        <span className="text-lg">✕</span> No incluye
+                                    </h3>
+                                    <ul className="space-y-3">
+                                        {noIncluye.map((item, idx) => (
+                                            <li key={idx} className="text-[11px] text-rose-800 font-medium flex gap-2">
+                                                • {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         )}
 
                         {activeTab === 'inversion' && (
-                            <div className="text-center bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100">
-                                <h2 className="text-2xl font-black mb-6 uppercase tracking-tight">Costo del Paquete</h2>
+                            <div className="text-center bg-white p-8 rounded-[3rem] shadow-xl border border-slate-100">
+                                <h2 className="text-xl font-black mb-6 uppercase">Detalles de Inversión</h2>
                                 <div className="space-y-4 mb-8">
-                                    <div className="p-4 bg-slate-50 rounded-2xl">
-                                        <p className="text-3xl font-black text-slate-800">$79,100 MXN</p>
+                                    <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                                        <p className="text-xs font-bold text-slate-400 uppercase mb-1">Precio por persona</p>
+                                        <p className="text-4xl font-black text-slate-800">$79,100 <span className="text-sm font-bold">MXN</span></p>
                                     </div>
-                                    <div className="p-4 bg-slate-50 rounded-2xl">
-                                        <p className="text-3xl font-black text-slate-800">$3,850 USD</p>
+                                    <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                                        <p className="text-4xl font-black text-slate-800">$3,850 <span className="text-sm font-bold">USD</span></p>
                                     </div>
                                 </div>
-                                <p className="text-xs text-slate-400 mb-6 font-bold uppercase tracking-widest">Reserva con $25,000 MXN</p>
-                                <a href="https://wa.me/2212899364" className="block w-full bg-[#C5A059] text-white py-4 rounded-2xl font-black uppercase text-sm">Reserva ahora</a>
+                                <p className="text-[10px] text-slate-400 mb-6 font-black uppercase tracking-widest">Reserva con $25,000 MXN</p>
+                                <a href="https://wa.me/2212899364" className="block w-full bg-[#C5A059] text-white py-5 rounded-2xl font-black uppercase text-xs shadow-lg shadow-[#C5A059]/30">Apartar mi lugar</a>
                             </div>
                         )}
                     </main>
