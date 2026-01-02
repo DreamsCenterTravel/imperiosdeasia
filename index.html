@@ -3,149 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreams Center - Imperios de Asia</title>
+    <title>Dreams Center - Imperios de Asia 2026</title>
     
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* Ocultar barra de scroll en el menú de pestañas */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body>
+<body class="bg-slate-50">
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
-        
-        // Componente de Icono simplificado para CDN
-        const Icon = ({ name, size = 24, className = "" }) => {
-            useEffect(() => {
-                lucide.createIcons();
-            }, [name]);
-            return <i data-lucide={name} className={className} style={{width: size, height: size}}></i>;
-        };
+        const { useState } = React;
 
         function App() {
             const [activeTab, setActiveTab] = useState('itinerario');
-            const [isMenuOpen, setIsMenuOpen] = useState(false);
 
             const itinerario = [
                 { dia: "01", titulo: "México – Dubái", desc: "Inicio de la aventura. Cita en el aeropuerto de CDMX para el vuelo transatlántico. Noche a bordo." },
                 { dia: "02", titulo: "Llegada a Dubái", desc: "Recepción por nuestro equipo y traslado al hotel seleccionado. Tiempo libre para aclimatación." },
-                { dia: "03", titulo: "Dubái (Safari & Ciudad)", desc: "Desayuno. Visita opcional a la ciudad antigua y moderna. Por la tarde, safari por el desierto con cena buffet." },
                 { dia: "04", titulo: "Dubái – Bangkok", desc: "Vuelo hacia la capital tailandesa. Traslado al hotel." },
-                { dia: "05", titulo: "Bangkok (Templos & Palacio)", desc: "Recorrido por el Templo del Buda de Oro, el Buda Reclinado y el majestuoso Gran Palacio Real." },
-                { dia: "06", titulo: "Bangkok – Phuket", desc: "Vuelo doméstico hacia la isla más grande de Tailandia. Tarde de playa." },
-                { dia: "07", titulo: "Phuket (Phi Phi Islands)", desc: "Excursión opcional en lancha rápida a Maya Bay y las paradisíacas Islas Phi Phi." },
+                { dia: "05", titulo: "Bangkok (Templos)", desc: "Recorrido por el Templo del Buda de Oro y el Gran Palacio Real." },
                 { dia: "08", titulo: "Phuket – Tokio", desc: "Traslado al aeropuerto para volar hacia la capital de Japón." },
-                { dia: "09", titulo: "Llegada a Tokio", desc: "Recepción y traslado al hotel. Resto del día libre." },
-                { dia: "10", titulo: "Tokio (City Tour)", desc: "Santuario Meiji, Plaza del Palacio Imperial y el Templo Senso-ji." },
-                { dia: "11", titulo: "Tokio (Día Libre)", desc: "Día libre. Recomendamos Shibuya Crossing o Harajuku." },
-                { dia: "12", titulo: "Tokio – Mt. Fuji – Hakone", desc: "Ascenso al Monte Fuji. Crucero por el Lago Ashi." },
                 { dia: "13", titulo: "Hakone – Kioto", desc: "Experiencia en el Tren Bala Shinkansen hacia la ciudad de los templos." },
-                { dia: "14", titulo: "Kioto (Tradición Pura)", desc: "Pabellón Dorado (Kinkaku-ji) y paseo por Gion." },
-                { dia: "15", titulo: "Kioto – Nara – Osaka", desc: "Encuentro con ciervos en Nara y el Gran Buda. Noche en Osaka." },
-                { dia: "16", titulo: "Osaka (Castillo & Dotonbori)", desc: "Visita al Castillo de Osaka y distrito gastronómico." },
-                { dia: "17", titulo: "Osaka – Dubái", desc: "Vuelo de regreso con escala en Dubái." },
-                { dia: "18-19", titulo: "Conexión", desc: "Tiempo de tránsito y descanso en Dubái." },
                 { dia: "20", titulo: "Llegada a México", desc: "Fin de la travesía Imperios de Asia." }
             ];
 
             const hoteles = [
                 { destino: "Dubái", nombre: "Mövenpick Al Mamzar", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600" },
-                { destino: "Bangkok", nombre: "Century Park Hotel", cat: "4* Superior", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" },
-                { destino: "Phuket", nombre: "Fishermen's Harbour", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=600" },
-                { destino: "Tokio", nombre: "Sunshine City Prince", cat: "4* Premium", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=600" },
-                { destino: "Osaka", nombre: "Hotel Keihan / Miyako", cat: "4 estrellas", img: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=600" }
+                { destino: "Tokio", nombre: "Sunshine City Prince", cat: "4* Premium", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=600" }
+            ];
+
+            const inclusiones = [
+                "Vuelos Internacionales CDMX-Dubái-Bangkok // Osaka-Dubái-CDMX.",
+                "Alojamiento en hoteles de lujo y categoría superior.",
+                "Guías certificados de habla hispana.",
+                "Experiencia en Tren Bala (Shinkansen)."
             ];
 
             return (
-                <div className="min-h-screen bg-slate-50 text-slate-900 leading-relaxed">
-                    {/* Nav */}
-                    <nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex justify-between items-center h-20">
+                <div className="min-h-screen pb-10">
+                    {/* Navegación fija */}
+                    <nav className="bg-white sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+                        <div className="max-w-7xl mx-auto px-4">
+                            <div className="flex justify-between items-center h-16">
                                 <div className="flex flex-col">
-                                    <span className="text-2xl font-black tracking-tighter">DREAMS CENTER</span>
-                                    <span className="text-[10px] font-bold text-[#C5A059] tracking-[0.3em] uppercase">Imperios de Asia 2026</span>
+                                    <span className="text-xl font-black leading-tight">DREAMS CENTER</span>
+                                    <span className="text-[8px] font-bold text-[#C5A059] tracking-widest uppercase">Imperios de Asia 2026</span>
                                 </div>
-                                <div className="hidden lg:flex space-x-1">
-                                    {['itinerario', 'hoteles', 'inclusiones', 'inversion'].map((tab) => (
-                                        <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2 text-xs font-bold uppercase rounded-lg ${activeTab === tab ? 'text-[#C5A059] bg-slate-50' : 'text-slate-500'}`}>
-                                            {tab === 'inversion' ? 'Inversión' : tab}
-                                        </button>
-                                    ))}
-                                </div>
-                                <a href="https://wa.me/2212899364" className="hidden md:block bg-[#C5A059] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-[#C5A059]/20">WhatsApp</a>
+                                <a href="https://wa.me/2212899364" className="bg-[#C5A059] text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase">WhatsApp</a>
+                            </div>
+                            
+                            {/* Menú de Pestañas (CORREGIDO: Desplazable en celular) */}
+                            <div className="flex overflow-x-auto no-scrollbar space-x-4 pb-2">
+                                {['itinerario', 'hoteles', 'inclusiones', 'inversion'].map((tab) => (
+                                    <button 
+                                        key={tab} 
+                                        onClick={() => setActiveTab(tab)} 
+                                        className={`whitespace-nowrap px-3 py-2 text-[11px] font-black uppercase tracking-wider transition-all border-b-2 ${
+                                            activeTab === tab ? 'border-[#C5A059] text-[#C5A059]' : 'border-transparent text-slate-400'
+                                        }`}
+                                    >
+                                        {tab === 'inversion' ? 'Inversión' : tab}
+                                    </button>
+                                ))}
                             </div>
                         </div>
                     </nav>
 
-                    {/* Hero */}
-                    <header className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1600" className="absolute inset-0 w-full h-full object-cover opacity-50" />
-                        <div className="relative z-10 text-center px-4">
-                            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4">IMPERIOS <span className="text-[#C5A059]">DE ASIA</span></h1>
-                            <p className="text-white/80 max-w-xl mx-auto">Dubái, Tailandia y Japón en una experiencia inolvidable.</p>
+                    {/* Hero Section */}
+                    <header className="relative h-[35vh] flex items-center justify-center bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=800" className="absolute w-full h-full object-cover opacity-40" />
+                        <div className="relative text-center px-4">
+                            <h1 className="text-4xl font-black text-white tracking-tighter">IMPERIOS <span className="text-[#C5A059]">DE ASIA</span></h1>
                         </div>
                     </header>
 
-                    <main className="max-w-7xl mx-auto px-4 py-16">
+                    <main className="max-w-7xl mx-auto px-4 mt-8">
                         {activeTab === 'itinerario' && (
-                            <div className="grid lg:grid-cols-3 gap-12">
-                                <div className="lg:col-span-2 space-y-4">
-                                    {itinerario.map((step, idx) => (
-                                        <div key={idx} className="flex gap-6">
-                                            <div className="flex flex-col items-center">
-                                                <div className="w-10 h-10 bg-white border-2 border-[#C5A059] rounded-xl flex items-center justify-center text-xs font-bold">{step.dia}</div>
-                                                {idx !== itinerario.length - 1 && <div className="w-px h-full bg-slate-200 my-2" />}
-                                            </div>
-                                            <div className="pb-10 flex-1">
-                                                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                                                    <h3 className="font-black text-slate-800 uppercase text-sm">{step.titulo}</h3>
-                                                    <p className="text-slate-500 text-sm mt-1">{step.desc}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'hoteles' && (
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {hoteles.map((hotel, idx) => (
-                                    <div key={idx} className="bg-white rounded-3xl overflow-hidden border shadow-sm">
-                                        <img src={hotel.img} className="h-48 w-full object-cover" />
-                                        <div className="p-6">
-                                            <span className="text-[10px] text-[#C5A059] font-bold uppercase">{hotel.cat}</span>
-                                            <h3 className="text-lg font-black">{hotel.nombre}</h3>
-                                            <p className="text-slate-400 text-sm">{hotel.destino}</p>
+                            <div className="space-y-4">
+                                {itinerario.map((step, idx) => (
+                                    <div key={idx} className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex gap-4">
+                                        <div className="bg-slate-50 h-10 w-10 rounded-lg flex items-center justify-center font-bold text-[#C5A059] shrink-0">{step.dia}</div>
+                                        <div>
+                                            <h3 className="font-bold text-sm text-slate-800 uppercase">{step.titulo}</h3>
+                                            <p className="text-slate-500 text-xs mt-1 leading-relaxed">{step.desc}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         )}
 
-                        {activeTab === 'inversion' && (
-                            <div className="max-w-2xl mx-auto text-center bg-white p-12 rounded-[3rem] shadow-xl border">
-                                <h2 className="text-3xl font-black mb-8 uppercase">Inversión del Viaje</h2>
-                                <div className="grid grid-cols-2 gap-4 mb-8">
-                                    <div className="p-6 bg-slate-50 rounded-2xl">
-                                        <p className="text-4xl font-black text-slate-800">$79,100</p>
-                                        <p className="text-xs font-bold text-slate-400">MXN</p>
+                        {activeTab === 'hoteles' && (
+                            <div className="grid grid-cols-1 gap-6">
+                                {hoteles.map((hotel, idx) => (
+                                    <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
+                                        <img src={hotel.img} className="h-44 w-full object-cover" />
+                                        <div className="p-5">
+                                            <span className="text-[9px] font-bold text-[#C5A059] uppercase">{hotel.cat}</span>
+                                            <h3 className="text-lg font-black text-slate-800">{hotel.nombre}</h3>
+                                            <p className="text-slate-400 text-xs">{hotel.destino}</p>
+                                        </div>
                                     </div>
-                                    <div className="p-6 bg-slate-50 rounded-2xl">
-                                        <p className="text-4xl font-black text-slate-800">$3,850</p>
-                                        <p className="text-xs font-bold text-slate-400">USD</p>
+                                ))}
+                            </div>
+                        )}
+
+                        {activeTab === 'inclusiones' && (
+                            <div className="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
+                                <h3 className="font-black text-emerald-900 mb-4 uppercase text-sm">¿Qué incluye el viaje?</h3>
+                                <ul className="space-y-3">
+                                    {inclusiones.map((item, idx) => (
+                                        <li key={idx} className="text-xs text-emerald-800 flex gap-2">
+                                            <span className="text-emerald-500">✔</span> {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        {activeTab === 'inversion' && (
+                            <div className="text-center bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100">
+                                <h2 className="text-2xl font-black mb-6 uppercase tracking-tight">Costo del Paquete</h2>
+                                <div className="space-y-4 mb-8">
+                                    <div className="p-4 bg-slate-50 rounded-2xl">
+                                        <p className="text-3xl font-black text-slate-800">$79,100 MXN</p>
+                                    </div>
+                                    <div className="p-4 bg-slate-50 rounded-2xl">
+                                        <p className="text-3xl font-black text-slate-800">$3,850 USD</p>
                                     </div>
                                 </div>
-                                <a href="https://wa.me/2212899364" className="inline-block bg-[#C5A059] text-white px-10 py-4 rounded-full font-black uppercase tracking-widest">Reserva con $25,000 MXN</a>
+                                <p className="text-xs text-slate-400 mb-6 font-bold uppercase tracking-widest">Reserva con $25,000 MXN</p>
+                                <a href="https://wa.me/2212899364" className="block w-full bg-[#C5A059] text-white py-4 rounded-2xl font-black uppercase text-sm">Reserva ahora</a>
                             </div>
                         )}
                     </main>
