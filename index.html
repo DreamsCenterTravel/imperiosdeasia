@@ -1,317 +1,160 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams Center - Imperios de Asia</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">import React, { useState } from 'react';</span></p>
-<p class="p1"><span class="s1">import {<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>Plane, MapPin, Hotel, CheckCircle2, XCircle,<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>DollarSign, Calendar, ChevronRight, Menu, X,<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>Clock, Globe, Star, ShieldCheck, Instagram, Facebook<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">} from 'lucide-react';</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">export default function App() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const [activeTab, setActiveTab] = useState('itinerario');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const [isMenuOpen, setIsMenuOpen] = useState(false);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// Itinerario fiel al PDF: 20 Días / 16 Noches</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const itinerario = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "01", titulo: "México – Dubái", desc: "Inicio de la aventura. Cita en el aeropuerto de CDMX para el vuelo transatlántico. Noche a bordo." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "02", titulo: "Llegada a Dubái", desc: "Recepción por nuestro equipo y traslado al hotel seleccionado. Tiempo libre para aclimatación." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "03", titulo: "Dubái (Safari &amp; Ciudad)", desc: "Desayuno. Visita opcional a la ciudad antigua y moderna. Por la tarde, safari por el desierto con cena buffet." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "04", titulo: "Dubái – Bangkok", desc: "Vuelo hacia la capital tailandesa. Traslado al hotel y primera noche en el Sudeste Asiático." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "05", titulo: "Bangkok (Templos &amp; Palacio)", desc: "Recorrido por el Templo del Buda de Oro, el Buda Reclinado y el majestuoso Gran Palacio Real." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "06", titulo: "Bangkok – Phuket", desc: "Vuelo doméstico hacia la isla más grande de Tailandia. Tarde de playa en el Mar de Andamán." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "07", titulo: "Phuket (Phi Phi Islands)", desc: "Excursión opcional en lancha rápida a Maya Bay, Monkey Beach y las paradisíacas Islas Phi Phi." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "08", titulo: "Phuket – Tokio", desc: "Traslado al aeropuerto para volar hacia la capital tecnológica y cultural de Japón." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "09", titulo: "Llegada a Tokio", desc: "Recepción y traslado al hotel en el corazón de Tokio. Resto del día libre." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "10", titulo: "Tokio (City Tour)", desc: "Santuario Meiji, Plaza del Palacio Imperial y el místico Templo Senso-ji en el barrio de Asakusa." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "11", titulo: "Tokio (Día de Exploración)", desc: "Día libre. Recomendamos Shibuya Crossing, Harajuku o una escapada a Nikko." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "12", titulo: "Tokio – Mt. Fuji – Hakone", desc: "Ascenso a la 5a estación del Monte Fuji. Crucero por el Lago Ashi y vistas desde el teleférico." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "13", titulo: "Hakone – Kioto", desc: "Experiencia en el Tren Bala Shinkansen. Llegada a la ciudad de los mil templos." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "14", titulo: "Kioto (Tradición Pura)", desc: "Visita al Pabellón Dorado (Kinkaku-ji), Castillo Nijo y paseo por el barrio de las Geishas, Gion." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "15", titulo: "Kioto – Nara – Osaka", desc: "Encuentro con ciervos en el Parque de Nara y el Gran Buda de Todaiji. Noche en Osaka." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "16", titulo: "Osaka (Castillo &amp; Dotonbori)", desc: "Visita al Castillo de Osaka y tiempo libre en el distrito gastronómico de Dotonbori." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "17", titulo: "Osaka – Dubái", desc: "Traslado al aeropuerto de Kansai para el vuelo de regreso con escala en Dubái." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "18-19", titulo: "Conexión y Escala", desc: "Tiempo de tránsito en Dubái para compras libres de impuestos y descanso en salas VIP." },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ dia: "20", titulo: "Llegada a México", desc: "Arribo a la Ciudad de México. Fin de la travesía Imperios de Asia." }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const hoteles = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ destino: "Dubái", nombre: "Mövenpick Al Mamzar", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;q=80&amp;w=600" },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ destino: "Bangkok", nombre: "Century Park Hotel", cat: "4* Superior", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;q=80&amp;w=600" },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ destino: "Phuket", nombre: "Fishermen's Harbour", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&amp;fit=crop&amp;q=80&amp;w=600" },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ destino: "Tokio", nombre: "Sunshine City Prince", cat: "4* Premium", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;q=80&amp;w=600" },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{ destino: "Osaka", nombre: "Hotel Keihan / Miyako", cat: "4 estrellas", img: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&amp;fit=crop&amp;q=80&amp;w=600" }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const inclusiones = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Vuelos Internacionales CDMX-Dubái-Bangkok // Osaka-Dubái-CDMX.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Vuelo de conexión Phuket-Tokio y vuelos internos en Tailandia.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Alojamiento en hoteles de lujo y categoría superior seleccionados.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Desayunos buffet diarios en todos los hoteles.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Traslados privados aeropuerto-hotel-aeropuerto.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Guías certificados de habla hispana en todos los destinos.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Seguro de asistencia en viaje con cobertura internacional.",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"Experiencia en Tren Bala (Shinkansen) de Hakone a Kioto."</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>return (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div className="min-h-screen bg-slate-50 text-slate-900 font-sans leading-relaxed"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{/* Navegación */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="flex justify-between items-center h-20"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="flex flex-col"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span className="text-2xl font-black tracking-tighter text-slate-900"&gt;DREAMS CENTER&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span className="text-[10px] font-bold text-[#C5A059] tracking-[0.3em] uppercase"&gt;Imperios de Asia 2026&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{/* Desktop Nav */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="hidden lg:flex space-x-1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>{['itinerario', 'hoteles', 'inclusiones', 'inversion'].map((tab) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>key={tab}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>onClick={() =&gt; setActiveTab(tab)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all rounded-lg ${</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>activeTab === tab ? 'text-[#C5A059] bg-slate-50' : 'text-slate-500 hover:text-slate-800'</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>}`}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>{tab === 'inversion' ? 'Inversión' : tab}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="flex items-center gap-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;a href="https://wa.me/2212899364" target="_blank" className="hidden md:flex items-center gap-2 bg-[#C5A059] text-white px-5 py-2.5 rounded-full text-xs font-bold hover:bg-slate-800 transition-all shadow-lg shadow-[#C5A059]/20"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>Reserva vía WhatsApp</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;button onClick={() =&gt; setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-slate-600"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{isMenuOpen ? &lt;X size={24} /&gt; : &lt;Menu size={24} /&gt;}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{/* Hero Section */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;header className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-900"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;q=80&amp;w=1600"<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>className="absolute inset-0 w-full h-full object-cover opacity-60"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>alt="Asia Landscape"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div className="relative z-10 text-center px-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="inline-block bg-[#C5A059] text-white px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Enero - Febrero 2026</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;h1 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter mb-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>IMPERIOS &lt;span className="text-[#C5A059]"&gt;DE ASIA&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p className="text-lg md:text-xl text-slate-700 font-medium max-w-2xl mx-auto"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Dubái, Tailandia y Japón en un solo viaje diseñado para superar tus expectativas.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{/* Main Content */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{/* Tab: Itinerario */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{activeTab === 'itinerario' &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="grid lg:grid-cols-3 gap-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="lg:col-span-2 space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;h2 className="text-3xl font-black text-slate-900 mb-10 flex items-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;Globe className="text-[#C5A059]" /&gt; CRONOGRAMA DE EXPEDICIÓN</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>{itinerario.map((step, idx) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div key={idx} className="group relative flex gap-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="flex flex-col items-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="w-12 h-12 bg-white border-2 border-slate-200 rounded-2xl flex items-center justify-center text-xs font-black text-slate-400 group-hover:border-[#C5A059] group-hover:text-[#C5A059] transition-all"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>{step.dia}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>{idx !== itinerario.length - 1 &amp;&amp; &lt;div className="w-px h-full bg-slate-200 my-2" /&gt;}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="flex-1 pb-10"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;h3 className="font-black text-lg text-slate-800 mb-2 uppercase tracking-tight"&gt;{step.titulo}&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;p className="text-slate-500 text-sm"&gt;{step.desc}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="hidden lg:block"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div className="sticky top-32 space-y-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="bg-slate-900 text-white p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;Star className="absolute -top-6 -right-6 text-[#C5A059] opacity-20" size={120} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;h4 className="text-xl font-black mb-6 border-b border-white/10 pb-4"&gt;¿Por qué con Dreams Center?&lt;/h4&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;ul className="space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li className="flex gap-3 text-sm font-medium text-slate-300"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;ShieldCheck className="text-[#C5A059] shrink-0" size={18} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>Atención personalizada 24/7 vía WhatsApp.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li className="flex gap-3 text-sm font-medium text-slate-300"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;ShieldCheck className="text-[#C5A059] shrink-0" size={18} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>Hotelería inspeccionada categoría 4* y 5*.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li className="flex gap-3 text-sm font-medium text-slate-300"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;ShieldCheck className="text-[#C5A059] shrink-0" size={18} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                      </span>Pagos seguros y flexibilidad de apartado.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{/* Tab: Hoteles */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{activeTab === 'hoteles' &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{hoteles.map((hotel, idx) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg hover:shadow-2xl transition-all"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="h-60 relative overflow-hidden"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;img src={hotel.img} className="w-full h-full object-cover" alt={hotel.nombre} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black text-[#C5A059] uppercase tracking-widest"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>{hotel.cat}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="p-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;p className="text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-1"&gt;{hotel.destino}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;h3 className="text-xl font-black text-slate-800"&gt;{hotel.nombre}&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{/* Tab: Inclusiones */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{activeTab === 'inclusiones' &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="grid md:grid-cols-2 gap-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="bg-emerald-50 p-10 rounded-[3rem] border border-emerald-100"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;h3 className="text-2xl font-black text-emerald-900 mb-8 flex items-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;CheckCircle2 className="text-emerald-500" size={28} /&gt; LO QUE INCLUYE</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;ul className="space-y-5"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{inclusiones.map((item, idx) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;li key={idx} className="flex gap-3 text-sm font-bold text-emerald-800 leading-snug"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>{item}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="bg-slate-100 p-10 rounded-[3rem] border border-slate-200"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;h3 className="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3 uppercase"&gt;No incluye&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;ul className="space-y-5"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li className="flex gap-3 text-sm font-medium text-slate-500 italic"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;XCircle size={18} className="text-rose-400 shrink-0 mt-0.5" /&gt; Gastos personales y propinas.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li className="flex gap-3 text-sm font-medium text-slate-500 italic"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;XCircle size={18} className="text-rose-400 shrink-0 mt-0.5" /&gt; Trámite de visas (aprox. $85 USD).</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li className="flex gap-3 text-sm font-medium text-slate-500 italic"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;XCircle size={18} className="text-rose-400 shrink-0 mt-0.5" /&gt; Tours opcionales no mencionados.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{/* Tab: Inversión */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{activeTab === 'inversion' &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="max-w-4xl mx-auto text-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="bg-white p-12 md:p-20 rounded-[4rem] shadow-2xl border border-slate-100 relative overflow-hidden"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div className="absolute top-0 left-0 w-full h-3 bg-[#C5A059]" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter uppercase"&gt;TU SUEÑO &lt;span className="text-[#C5A059]"&gt;A TU ALCANCE&lt;/span&gt;&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p className="text-slate-500 font-medium mb-12 text-lg"&gt;Reserva con solo $25,000 MXN y paga el resto poco a poco.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div className="grid md:grid-cols-2 gap-8 mb-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;p className="text-xs font-black text-[#C5A059] uppercase tracking-widest mb-2"&gt;Precio en Pesos&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;p className="text-5xl font-black text-slate-800"&gt;$79,100 &lt;span className="text-sm font-bold opacity-50"&gt;MXN&lt;/span&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2"&gt;Precio en Dólares&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;p className="text-5xl font-black text-slate-800"&gt;$3,850 &lt;span className="text-sm font-bold opacity-50"&gt;USD&lt;/span&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div className="flex flex-col md:flex-row gap-4 justify-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="https://wa.me/2212899364" target="_blank" className="bg-[#C5A059] text-white px-10 py-6 rounded-3xl font-black uppercase tracking-widest hover:bg-slate-800 transition-all flex items-center justify-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>Reserva tu lugar &lt;ChevronRight size={24} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]"&gt;Lugares limitados para garantizar exclusividad&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/main&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{/* Footer */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;footer className="bg-slate-900 text-white py-20 px-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-16"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h5 className="text-2xl font-black tracking-tighter"&gt;DREAMS CENTER&lt;/h5&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p className="text-slate-400 text-sm leading-relaxed"&gt;Expertos en crear experiencias a medida en los destinos más fascinantes del mundo.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h6 className="text-xs font-black text-[#C5A059] uppercase tracking-widest"&gt;Contacto&lt;/h6&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p className="text-sm text-slate-300"&gt;WhatsApp: 2212899364&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p className="text-sm text-slate-300"&gt;Email: contacto@dreamscentertravel.com&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h6 className="text-xs font-black text-[#C5A059] uppercase tracking-widest"&gt;Síguenos&lt;/h6&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="flex gap-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;a href="https://www.instagram.com/dreamscenter.travel" className="hover:text-[#C5A059] transition-colors"&gt;&lt;Instagram /&gt;&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;a href="https://www.facebook.com/dreamscentertravel" className="hover:text-[#C5A059] transition-colors"&gt;&lt;Facebook /&gt;&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p className="text-center text-[10px] text-slate-500 mt-8 font-bold uppercase tracking-widest"&gt;© 2026 Dreams Center Travel Agency - Puebla, México.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{/* Mobile Menu */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{isMenuOpen &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div className="fixed inset-0 z-[60] bg-white p-8 flex flex-col animate-in slide-in-from-right duration-300"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="flex justify-between items-center mb-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span className="font-black text-xl"&gt;MENÚ&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button onClick={() =&gt; setIsMenuOpen(false)}&gt;&lt;X size={32} /&gt;&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{['itinerario', 'hoteles', 'inclusiones', 'inversion'].map((tab) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>key={tab}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>onClick={() =&gt; { setActiveTab(tab); setIsMenuOpen(false); }}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>className="block text-4xl font-black uppercase tracking-tighter text-slate-900 text-left"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{tab === 'inversion' ? 'Inversión' : tab}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;style dangerouslySetInnerHTML={{ __html: `</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { font-family: 'Plus Jakarta Sans', sans-serif; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>`}} /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>);</span></p>
-<p class="p1"><span class="s1">}</span></p>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        // Componente de Icono simplificado para CDN
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, [name]);
+            return <i data-lucide={name} className={className} style={{width: size, height: size}}></i>;
+        };
+
+        function App() {
+            const [activeTab, setActiveTab] = useState('itinerario');
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+            const itinerario = [
+                { dia: "01", titulo: "México – Dubái", desc: "Inicio de la aventura. Cita en el aeropuerto de CDMX para el vuelo transatlántico. Noche a bordo." },
+                { dia: "02", titulo: "Llegada a Dubái", desc: "Recepción por nuestro equipo y traslado al hotel seleccionado. Tiempo libre para aclimatación." },
+                { dia: "03", titulo: "Dubái (Safari & Ciudad)", desc: "Desayuno. Visita opcional a la ciudad antigua y moderna. Por la tarde, safari por el desierto con cena buffet." },
+                { dia: "04", titulo: "Dubái – Bangkok", desc: "Vuelo hacia la capital tailandesa. Traslado al hotel." },
+                { dia: "05", titulo: "Bangkok (Templos & Palacio)", desc: "Recorrido por el Templo del Buda de Oro, el Buda Reclinado y el majestuoso Gran Palacio Real." },
+                { dia: "06", titulo: "Bangkok – Phuket", desc: "Vuelo doméstico hacia la isla más grande de Tailandia. Tarde de playa." },
+                { dia: "07", titulo: "Phuket (Phi Phi Islands)", desc: "Excursión opcional en lancha rápida a Maya Bay y las paradisíacas Islas Phi Phi." },
+                { dia: "08", titulo: "Phuket – Tokio", desc: "Traslado al aeropuerto para volar hacia la capital de Japón." },
+                { dia: "09", titulo: "Llegada a Tokio", desc: "Recepción y traslado al hotel. Resto del día libre." },
+                { dia: "10", titulo: "Tokio (City Tour)", desc: "Santuario Meiji, Plaza del Palacio Imperial y el Templo Senso-ji." },
+                { dia: "11", titulo: "Tokio (Día Libre)", desc: "Día libre. Recomendamos Shibuya Crossing o Harajuku." },
+                { dia: "12", titulo: "Tokio – Mt. Fuji – Hakone", desc: "Ascenso al Monte Fuji. Crucero por el Lago Ashi." },
+                { dia: "13", titulo: "Hakone – Kioto", desc: "Experiencia en el Tren Bala Shinkansen hacia la ciudad de los templos." },
+                { dia: "14", titulo: "Kioto (Tradición Pura)", desc: "Pabellón Dorado (Kinkaku-ji) y paseo por Gion." },
+                { dia: "15", titulo: "Kioto – Nara – Osaka", desc: "Encuentro con ciervos en Nara y el Gran Buda. Noche en Osaka." },
+                { dia: "16", titulo: "Osaka (Castillo & Dotonbori)", desc: "Visita al Castillo de Osaka y distrito gastronómico." },
+                { dia: "17", titulo: "Osaka – Dubái", desc: "Vuelo de regreso con escala en Dubái." },
+                { dia: "18-19", titulo: "Conexión", desc: "Tiempo de tránsito y descanso en Dubái." },
+                { dia: "20", titulo: "Llegada a México", desc: "Fin de la travesía Imperios de Asia." }
+            ];
+
+            const hoteles = [
+                { destino: "Dubái", nombre: "Mövenpick Al Mamzar", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Bangkok", nombre: "Century Park Hotel", cat: "4* Superior", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Phuket", nombre: "Fishermen's Harbour", cat: "5 estrellas", img: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Tokio", nombre: "Sunshine City Prince", cat: "4* Premium", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=600" },
+                { destino: "Osaka", nombre: "Hotel Keihan / Miyako", cat: "4 estrellas", img: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=600" }
+            ];
+
+            return (
+                <div className="min-h-screen bg-slate-50 text-slate-900 leading-relaxed">
+                    {/* Nav */}
+                    <nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between items-center h-20">
+                                <div className="flex flex-col">
+                                    <span className="text-2xl font-black tracking-tighter">DREAMS CENTER</span>
+                                    <span className="text-[10px] font-bold text-[#C5A059] tracking-[0.3em] uppercase">Imperios de Asia 2026</span>
+                                </div>
+                                <div className="hidden lg:flex space-x-1">
+                                    {['itinerario', 'hoteles', 'inclusiones', 'inversion'].map((tab) => (
+                                        <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2 text-xs font-bold uppercase rounded-lg ${activeTab === tab ? 'text-[#C5A059] bg-slate-50' : 'text-slate-500'}`}>
+                                            {tab === 'inversion' ? 'Inversión' : tab}
+                                        </button>
+                                    ))}
+                                </div>
+                                <a href="https://wa.me/2212899364" className="hidden md:block bg-[#C5A059] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-[#C5A059]/20">WhatsApp</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1600" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+                        <div className="relative z-10 text-center px-4">
+                            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4">IMPERIOS <span className="text-[#C5A059]">DE ASIA</span></h1>
+                            <p className="text-white/80 max-w-xl mx-auto">Dubái, Tailandia y Japón en una experiencia inolvidable.</p>
+                        </div>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto px-4 py-16">
+                        {activeTab === 'itinerario' && (
+                            <div className="grid lg:grid-cols-3 gap-12">
+                                <div className="lg:col-span-2 space-y-4">
+                                    {itinerario.map((step, idx) => (
+                                        <div key={idx} className="flex gap-6">
+                                            <div className="flex flex-col items-center">
+                                                <div className="w-10 h-10 bg-white border-2 border-[#C5A059] rounded-xl flex items-center justify-center text-xs font-bold">{step.dia}</div>
+                                                {idx !== itinerario.length - 1 && <div className="w-px h-full bg-slate-200 my-2" />}
+                                            </div>
+                                            <div className="pb-10 flex-1">
+                                                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                                                    <h3 className="font-black text-slate-800 uppercase text-sm">{step.titulo}</h3>
+                                                    <p className="text-slate-500 text-sm mt-1">{step.desc}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {activeTab === 'hoteles' && (
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {hoteles.map((hotel, idx) => (
+                                    <div key={idx} className="bg-white rounded-3xl overflow-hidden border shadow-sm">
+                                        <img src={hotel.img} className="h-48 w-full object-cover" />
+                                        <div className="p-6">
+                                            <span className="text-[10px] text-[#C5A059] font-bold uppercase">{hotel.cat}</span>
+                                            <h3 className="text-lg font-black">{hotel.nombre}</h3>
+                                            <p className="text-slate-400 text-sm">{hotel.destino}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {activeTab === 'inversion' && (
+                            <div className="max-w-2xl mx-auto text-center bg-white p-12 rounded-[3rem] shadow-xl border">
+                                <h2 className="text-3xl font-black mb-8 uppercase">Inversión del Viaje</h2>
+                                <div className="grid grid-cols-2 gap-4 mb-8">
+                                    <div className="p-6 bg-slate-50 rounded-2xl">
+                                        <p className="text-4xl font-black text-slate-800">$79,100</p>
+                                        <p className="text-xs font-bold text-slate-400">MXN</p>
+                                    </div>
+                                    <div className="p-6 bg-slate-50 rounded-2xl">
+                                        <p className="text-4xl font-black text-slate-800">$3,850</p>
+                                        <p className="text-xs font-bold text-slate-400">USD</p>
+                                    </div>
+                                </div>
+                                <a href="https://wa.me/2212899364" className="inline-block bg-[#C5A059] text-white px-10 py-4 rounded-full font-black uppercase tracking-widest">Reserva con $25,000 MXN</a>
+                            </div>
+                        )}
+                    </main>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
